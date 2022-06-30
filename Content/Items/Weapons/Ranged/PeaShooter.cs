@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace FFMod.Content.Items.Weapons.Ranged
 {
-	public class PeaShooter : ModItem
+    public sealed class PeaShooter : ModItem
     {
         public override void SetStaticDefaults()
         {
@@ -17,25 +17,26 @@ namespace FFMod.Content.Items.Weapons.Ranged
 
         public override void SetDefaults()
         {
+			Item.noMelee = true;
+			Item.autoReuse = true;
+
+			Item.damage = 20;
+			Item.DamageType = DamageClass.Ranged;
+
 			Item.width = 68;
 			Item.height = 36;
-			Item.scale = 1f;
-			Item.rare = ItemRarityID.Blue;
+
+			Item.knockBack = 5f;
 
 			Item.useTime = 30;
 			Item.useAnimation = 30;
 			Item.useStyle = ItemUseStyleID.Shoot;
-			Item.autoReuse = true;
-
 			Item.UseSound = SoundID.Item61;
-
-			Item.DamageType = DamageClass.Ranged;
-			Item.damage = 20;
-			Item.knockBack = 5f;
-			Item.noMelee = true;
 
 			Item.shoot = ModContent.ProjectileType<Pea>();
 			Item.shootSpeed = 12f;
-		}
-    }
+
+			Item.rare = ItemRarityID.Blue;
+		}            
+	}
 }

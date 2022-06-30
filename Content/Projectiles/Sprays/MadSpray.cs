@@ -6,13 +6,11 @@ using Terraria.ModLoader;
 
 namespace FFMod.Content.Projectiles.Sprays
 {
-    public class MadSpray : Spray
+    public sealed class MadSpray : Spray
     {
-        public override int DustType 
-			=> ModContent.DustType<MadSolution>();
+        public override int DustType => ModContent.DustType<MadSolution>();
 
-        public override void SetStaticDefaults() 
-			=> DisplayName.SetDefault("Madness Spray");
+        public override void SetStaticDefaults() => DisplayName.SetDefault("Madness Spray");
 
         public override void Convert(int i, int j, int size = 4)
 		{
@@ -25,7 +23,7 @@ namespace FFMod.Content.Projectiles.Sprays
 						continue;
 					}
 
-					int tileType = Main.tile[k, l].type;
+					int tileType = Main.tile[k, l].TileType;
 
 					if (TileID.Sets.Conversion.Grass[tileType])
 					{

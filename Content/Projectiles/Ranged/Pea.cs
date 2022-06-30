@@ -6,15 +6,15 @@ using Terraria.ModLoader;
 
 namespace FFMod.Content.Projectiles.Ranged
 {
-    public class Pea : ModProjectile
+    public sealed class Pea : ModProjectile
     {
         public override void SetStaticDefaults() => DisplayName.SetDefault("Pea");
 
         public override void SetDefaults()
         {
             Projectile.friendly = true;
+
             Projectile.DamageType = DamageClass.Ranged;
-            Projectile.scale = 1f;
 
             Projectile.timeLeft = 300;
             Projectile.aiStyle = 0;

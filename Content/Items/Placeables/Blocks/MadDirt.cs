@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace FFMod.Content.Items.Placeables.Blocks
 {
-	public class MadDirt : ModItem
+    public sealed class MadDirt : ModItem
     {
         public override void SetStaticDefaults()
         {

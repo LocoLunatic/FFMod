@@ -5,12 +5,12 @@ using Terraria.ModLoader;
 
 namespace FFMod.Content.Items.Ammo
 {
-    public class MadSolution : ModItem
+    public sealed class MadSolution : ModItem
     {
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Mad Solution");
-            Tooltip.SetDefault("Used by the Clentaminator" + "\nSpreads the Madness");
+            Tooltip.SetDefault("Used by the Clentaminator" + "\n" + "Spreads the Madness");
 
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 99;
         }

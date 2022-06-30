@@ -35,19 +35,16 @@ namespace FFMod.Content.Tiles.Biomes.Madness
             MinPick = 10;
             MineResist = 0.1f;
             DustType = DustID.t_BorealWood;
-            SoundType = SoundID.Dig;
+            HitSound = SoundID.Dig;
             ItemDrop = ModContent.ItemType<Items.Placeables.Blocks.MadDirt>();
         }
-
-        public override void NumDust(int i, int j, bool fail, ref int num) 
-            => num = fail ? 1 : 3;
 
         public override void KillTile(int i, int j, ref bool fail, ref bool effectOnly, ref bool noItem)
         {
             if (!fail)
             {
+                Framing.GetTileSafely(i, j).TileType = (ushort)ModContent.TileType<MadDirt>();
                 fail = true;
-                Framing.GetTileSafely(i, j).type = (ushort)ModContent.TileType<MadDirt>();
             }
         }
 
@@ -63,12 +60,12 @@ namespace FFMod.Content.Tiles.Biomes.Madness
 
         public override void RandomUpdate(int i, int j)
         {
-            Tile tile = Framing.GetTileSafely(i, j);
-            Tile tileAbove = Framing.GetTileSafely(i, j - 1);
-
             if (Main.rand.NextBool(4))
+            {
                 WorldGen.SpreadGrass(i + Main.rand.Next(-1, 1), j + Main.rand.Next(-1, 1), ModContent.TileType<MadDirt>(), Type, false, 0);
+            }
         }
 
+        public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
     }
 }

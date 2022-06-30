@@ -1,4 +1,5 @@
-﻿using Terraria;
+﻿using FFMod.Common.ID;
+using Terraria;
 using Terraria.ModLoader;
 
 namespace FFMod.Content.Projectiles.Sprays
@@ -7,8 +8,7 @@ namespace FFMod.Content.Projectiles.Sprays
     {
         public virtual int DustType { get; }
 
-        public override string Texture 
-            => FFMod.InvisibleTexture;
+        public sealed override string Texture => AssetPathID.InvisibleTexturePath;
 
         public override void SetDefaults()
         {
@@ -78,9 +78,9 @@ namespace FFMod.Content.Projectiles.Sprays
 
         protected static void ConvertTile(int i, int j, ushort type)
         {
-            if (Main.tile[i, j].type != type)
+            if (Main.tile[i, j].TileType != type)
             {
-                Main.tile[i, j].type = type;
+                Main.tile[i, j].TileType = type;
                 WorldGen.SquareTileFrame(i, j);
                 NetMessage.SendTileSquare(-1, i, j, 1);
             }
@@ -88,9 +88,9 @@ namespace FFMod.Content.Projectiles.Sprays
 
         protected static void ConvertWall(int i, int j, ushort type)
         {
-            if (Main.tile[i, j].wall != type)
+            if (Main.tile[i, j].WallType != type)
             {
-                Main.tile[i, j].wall = type;
+                Main.tile[i, j].WallType = type;
                 WorldGen.SquareWallFrame(i, j);
                 NetMessage.SendTileSquare(-1, i, j, 1);
             }

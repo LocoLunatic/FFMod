@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace FFMod.Content.Tiles.Biomes.Madness
 {
-	public class MadDirt : ModTile
+	public sealed class MadDirt : ModTile
     {
         public override void SetStaticDefaults()
         {
@@ -22,11 +22,10 @@ namespace FFMod.Content.Tiles.Biomes.Madness
             AddMapEntry(new Color(127, 105, 77));
 
             DustType = DustID.Dirt;
-            SoundType = SoundID.Dig;
+            HitSound = SoundID.Dig;
             ItemDrop = ModContent.ItemType<Items.Placeables.Blocks.MadDirt>();
         }
 
-        public override void NumDust(int i, int j, bool fail, ref int num) 
-            => num = fail ? 1 : 3;
+        public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
     }
 }
