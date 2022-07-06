@@ -6,13 +6,13 @@ using Terraria.ModLoader;
 
 namespace FFMod.Content.NPCs.Critters
 {
-    public sealed class StinkbugNPC : ModNPC
+    public sealed class GoldStinkbugNPC : ModNPC
     {
         private int currentFrame;
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Stinkbug");
+            DisplayName.SetDefault("Gold Stinkbug");
 
             Main.npcFrameCount[Type] = 8;
 
@@ -46,7 +46,7 @@ namespace FFMod.Content.NPCs.Critters
 
                 Vector2 velocity = direction * Main.rand.Next(3, 5) * 0.25f;
 
-                Dust dust = Dust.NewDustDirect(NPC.position, NPC.width, NPC.height, DustID.FartInAJar, velocity.X, velocity.Y * 0.5f, 100, default, 0.7f);
+                Dust dust = Dust.NewDustDirect(NPC.position, NPC.width, NPC.height, DustID.Gold, velocity.X, velocity.Y * 0.5f, 100, default, 0.7f);
                 dust.velocity *= 0.1f;
                 dust.velocity.Y -= 0.5f;
             }
@@ -55,9 +55,9 @@ namespace FFMod.Content.NPCs.Critters
         public override void FindFrame(int frameHeight)
         {
             NPC.spriteDirection = NPC.direction;
-            
+
             NPC.frameCounter++;
-            
+
             if (NPC.frameCounter > 5f)
             {
                 currentFrame++;
@@ -87,7 +87,7 @@ namespace FFMod.Content.NPCs.Critters
             {
                 for (int i = 0; i < 5; i++)
                 {
-                    Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.FartInAJar, 0f, 0f, 100, default, 1.5f);
+                    Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Gold, 0f, 0f, 100, default, 1.5f);
                 }
             }
         }
