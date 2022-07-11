@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FFMod.Content.Items.Critters;
+using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.ID;
@@ -33,6 +34,7 @@ namespace FFMod.Content.NPCs.Critters
 
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.catchItem = (short)ModContent.ItemType<StinkbugItem>();
         }
 
         public override void AI()
