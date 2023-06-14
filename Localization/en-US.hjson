@@ -1,0 +1,83 @@
+NPCs: {
+	Gurg: {
+		DisplayName: Gurg
+
+		BossChecklistIntegration: {
+			EntryName: Zombie Goliath
+			SpawnInfo: Use a [i:5729] at night.
+			DespawnMessage: The Zombie Goliath searches for something else to wreck...
+		}
+	}
+
+	GoldStinkbugNPC.DisplayName: Gold Stinkbug
+	StinkbugNPC.DisplayName: Stinkbug
+}
+
+Mods: {
+	FFMod: {
+		Tiles.GoliathBox.MapEntry: Goliath Box
+
+		NPCs: {
+			Gurg: {
+				DisplayName: Gurg
+
+				BossChecklistIntegration: {
+					EntryName: Zombie Goliath
+					SpawnInfo: Use a [i:5729] at night.
+					DespawnMessage: The Zombie Goliath searches for something else to wreck...
+				}
+			}
+
+			GoldStinkbugNPC.DisplayName: Gold Stinkbug N P C
+			StinkbugNPC.DisplayName: Stinkbug N P C
+		}
+
+		Items: {
+			MegaBrain: {
+				DisplayName: Mega-Brain
+				Tooltip: Summons the Zombie Goliath
+			}
+
+			GoldStinkbugItem: {
+				DisplayName: Gold Stinkbug Item
+				Tooltip: ""
+			}
+
+			StinkbugItem: {
+				DisplayName: Stinkbug Item
+				Tooltip: ""
+			}
+
+			Mythmud: {
+				DisplayName: Mythmud
+				Tooltip: ""
+			}
+
+			GoliathBox: {
+				DisplayName: Music Box (Zombie Goliath)
+				Tooltip: MaestroVGM - Rotten Brawl
+			}
+
+			BaseballCannon: {
+				DisplayName: Baseball Cannon
+				Tooltip: "'Baseball stars would not recommend'"
+			}
+
+			PeaShooter: {
+				DisplayName: Pea Shooter
+				Tooltip:
+					'''
+					Fires high-velocity peas that deal splash damage
+					Direct hits will always crit
+					'''
+			}
+		}
+
+		Projectiles: {
+			Baseball.DisplayName: Baseball
+			Pea.DisplayName: Pea
+		}
+	}
+}
+
+Tiles.GoliathBox.MapEntry: Music Box

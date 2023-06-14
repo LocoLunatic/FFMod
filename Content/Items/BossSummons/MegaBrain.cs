@@ -12,8 +12,8 @@ namespace FFMod.Content.Items.BossSummons
         public override string Texture => FFMod.PlaceholderTexture;
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mega-Brain");
-            Tooltip.SetDefault("Summons the Zombie Goliath");
+            // DisplayName.SetDefault("Mega-Brain");
+            // Tooltip.SetDefault("Summons the Zombie Goliath");
 
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 5;
             ItemID.Sets.SortingPriorityBossSpawns[Type] = 12;
@@ -49,7 +49,7 @@ namespace FFMod.Content.Items.BossSummons
                 }
                 else
                 {
-                    NetMessage.SendData(MessageID.SpawnBoss, number: player.whoAmI, number2: type);
+                    NetMessage.SendData(MessageID.SpawnBossUseLicenseStartEvent, number: player.whoAmI, number2: type);
                 }
             }
             return true;

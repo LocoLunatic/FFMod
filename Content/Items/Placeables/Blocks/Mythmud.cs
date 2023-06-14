@@ -9,7 +9,7 @@ namespace FFMod.Content.Items.Placeables.Blocks
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mythmud");
+            // DisplayName.SetDefault("Mythmud");
 
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
         }

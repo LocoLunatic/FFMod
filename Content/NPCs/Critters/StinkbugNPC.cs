@@ -13,7 +13,7 @@ namespace FFMod.Content.NPCs.Critters
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Stinkbug");
+            // DisplayName.SetDefault("Stinkbug");
 
             Main.npcFrameCount[Type] = 8;
 
@@ -83,7 +83,7 @@ namespace FFMod.Content.NPCs.Critters
             NPC.frame.Y = currentFrame * frameHeight;
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
             if (NPC.life <= 0)
             {

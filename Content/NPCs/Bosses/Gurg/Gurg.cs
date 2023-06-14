@@ -13,9 +13,24 @@ namespace FFMod.Content.NPCs.Bosses.Gurg
     [AutoloadBossHead]
     public class Gurg : ModNPC
     {
+        public enum ActionState
+        {
+            Start,
+            Idle,
+            Jump,
+            Throw,
+            Summon
+        }
+
+        public ActionState AIState
+        {
+            get => (ActionState)NPC.ai[0];
+            set => NPC.ai[0] = (int)value;
+        }
+
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Zombie Goliath");
+            // DisplayName.SetDefault("Zombie Goliath");
             NPCDebuffImmunityData debuffData = new()
             {
                 SpecificallyImmuneTo = new int[]
@@ -30,9 +45,9 @@ namespace FFMod.Content.NPCs.Bosses.Gurg
 
         public override void SetDefaults()
         {
-            NPC.lifeMax = 2200;
-            NPC.damage = 42;
-            NPC.defense = 12;
+            NPC.lifeMax = 2360;
+            NPC.damage = 24;
+            NPC.defense = 10;
 
             NPC.width = 90;
             NPC.height = 90;
@@ -54,9 +69,9 @@ namespace FFMod.Content.NPCs.Bosses.Gurg
             }
         }
 
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
-            NPC.lifeMax = (int)(NPC.lifeMax * 0.6f * bossLifeScale);
+            NPC.lifeMax = (int)(NPC.lifeMax * 0.6f * balance);
             NPC.damage = (int)(NPC.damage * 0.6f);
         }
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -65,12 +80,20 @@ namespace FFMod.Content.NPCs.Bosses.Gurg
             {
                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
                 BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Times.NightTime,
-                new FlavorTextBestiaryInfoElement("A colossal zombie, tougher and meaner than his brethren, he uses his brute strengh to wreak havoc wherever he goes. He calls himself 'Gurg'.")
+                new FlavorTextBestiaryInfoElement("A colossal zombie, tougher and meaner than his brethren, he uses his brute strength to wreak havoc wherever he goes. He calls himself 'Gurg'.")
             });
         }
         public override void OnKill()
         {
             NPC.SetEventFlagCleared(ref AABossDowned.downedGurg, -1);
+        }
+
+        public override void AI()
+        {
+            Player player = Main.player[NPC.target];
+
+            if (NPC.target < 0 || NPC.target == 255 || player.dead || !player.active)
+                NPC.TargetClosest();
         }
         public override void FindFrame(int frameHeight)
         {
@@ -84,7 +107,7 @@ namespace FFMod.Content.NPCs.Bosses.Gurg
             }
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
             if (NPC.life <= 0)
             {

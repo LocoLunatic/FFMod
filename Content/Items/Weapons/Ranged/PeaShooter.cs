@@ -12,9 +12,9 @@ namespace FFMod.Content.Items.Weapons.Ranged
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Pea Shooter");
-			Tooltip.SetDefault("Fires high-velocity peas that deal splash damage"
-				+ "\nDirect hits will always crit");
+			// DisplayName.SetDefault("Pea Shooter");
+			/* Tooltip.SetDefault("Fires high-velocity peas that deal splash damage"
+				+ "\nDirect hits will always crit"); */
 
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}

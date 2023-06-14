@@ -24,7 +24,6 @@ namespace FFMod.Content.Tiles.Biomes.Mythos
 
             DustType = 54;
             HitSound = SoundID.Dig;
-            ItemDrop = ModContent.ItemType<Items.Placeables.Blocks.Mythmud>();
         }
 
         public override void NumDust(int i, int j, bool fail, ref int num) 

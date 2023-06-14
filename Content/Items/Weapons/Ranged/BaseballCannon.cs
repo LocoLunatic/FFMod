@@ -12,8 +12,8 @@ namespace FFMod.Content.Items.Weapons.Ranged
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Baseball Cannon");
-			Tooltip.SetDefault("'Baseball stars would not recommend'");
+			// DisplayName.SetDefault("Baseball Cannon");
+			// Tooltip.SetDefault("'Baseball stars would not recommend'");
 
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}

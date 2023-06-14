@@ -11,8 +11,8 @@ namespace FFMod.Content.Items.Critters
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Stinkbug");
-            Tooltip.SetDefault("'Uh oh'");
+            // DisplayName.SetDefault("Stinkbug");
+            // Tooltip.SetDefault("'Uh oh'");
 
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 5;
         }

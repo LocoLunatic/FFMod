@@ -10,7 +10,7 @@ namespace FFMod.Content.Projectiles.Ranged
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Pea");
+            // DisplayName.SetDefault("Pea");
         }
 
         public override void SetDefaults()
