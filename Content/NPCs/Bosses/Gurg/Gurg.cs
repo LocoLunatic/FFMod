@@ -1,5 +1,4 @@
 ﻿using AAMod.Common.Globals;
-using FFMod.Content.Items.Critters;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -31,16 +30,17 @@ namespace FFMod.Content.NPCs.Bosses.Gurg
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Zombie Goliath");
-            NPCDebuffImmunityData debuffData = new()
-            {
-                SpecificallyImmuneTo = new int[]
-                {
-                    BuffID.Confused
-                }
-            };
-            NPCID.Sets.DebuffImmunitySets.Add(Type, debuffData);
+            NPCID.Sets.MPAllowedEnemies[Type] = true;
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
 
-            Main.npcFrameCount[Type] = 38;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Position = new Vector2(0f, 90f),
+                PortraitPositionYOverride = 60f
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, value);
         }
 
         public override void SetDefaults()
@@ -49,8 +49,8 @@ namespace FFMod.Content.NPCs.Bosses.Gurg
             NPC.damage = 24;
             NPC.defense = 10;
 
-            NPC.width = 90;
-            NPC.height = 90;
+            NPC.width = 74;
+            NPC.height = 166;
 
             NPC.aiStyle = 3;
 
@@ -80,7 +80,7 @@ namespace FFMod.Content.NPCs.Bosses.Gurg
             {
                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
                 BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Times.NightTime,
-                new FlavorTextBestiaryInfoElement("A colossal zombie, tougher and meaner than his brethren, he uses his brute strength to wreak havoc wherever he goes. He calls himself 'Gurg'.")
+                new FlavorTextBestiaryInfoElement("Bigger, meaner, and smarter than the others, this brute leads a gang of smaller zombies to cause chaos wherever they go. He calls himself 'Gurg'.")
             });
         }
         public override void OnKill()
@@ -94,17 +94,6 @@ namespace FFMod.Content.NPCs.Bosses.Gurg
 
             if (NPC.target < 0 || NPC.target == 255 || player.dead || !player.active)
                 NPC.TargetClosest();
-        }
-        public override void FindFrame(int frameHeight)
-        {
-            NPC.spriteDirection = NPC.direction;
-            if (++NPC.frameCounter > 4)
-            {
-                NPC.frame.Y += frameHeight;
-                NPC.frameCounter = 0;
-                if (NPC.frame.Y > 5 * frameHeight)
-                    NPC.frame.Y = 0;
-            }
         }
 
         public override void HitEffect(NPC.HitInfo hit)

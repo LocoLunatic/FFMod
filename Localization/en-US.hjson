@@ -1,25 +1,10 @@
-NPCs: {
-	Gurg: {
-		DisplayName: Gurg
-
-		BossChecklistIntegration: {
-			EntryName: Zombie Goliath
-			SpawnInfo: Use a [i:5729] at night.
-			DespawnMessage: The Zombie Goliath searches for something else to wreck...
-		}
-	}
-
-	GoldStinkbugNPC.DisplayName: Gold Stinkbug
-	StinkbugNPC.DisplayName: Stinkbug
-}
-
 Mods: {
 	FFMod: {
 		Tiles.GoliathBox.MapEntry: Goliath Box
 
 		NPCs: {
 			Gurg: {
-				DisplayName: Gurg
+				DisplayName: Zombie Goliath
 
 				BossChecklistIntegration: {
 					EntryName: Zombie Goliath
@@ -28,24 +13,40 @@ Mods: {
 				}
 			}
 
-			GoldStinkbugNPC.DisplayName: Gold Stinkbug N P C
-			StinkbugNPC.DisplayName: Stinkbug N P C
+			Teacher: {
+				DisplayName: Teacher
+
+				TownNPCMood: {
+					Content: I'm doing just fine. Thank you for asking.
+					NoHome: You wouldn't happen to have somewhere for me to stay, would you dear?
+					FarFromHome: The outdoors are nice and all, but I'm ready to go back home.
+					LoveSpace: This quiet neighbourhood is wonderful! Now I can teach without distractions.
+					DislikeCrowded: It's quite packed here, and noisy too, especially when your ears are as big as mine.
+					HateCrowded: Ack, its so loud around here! I can barely hear myself think!
+					LikeBiome: "{BiomeName} reminds me quite a lot of my homeland."
+					DislikeBiome: I'm not very keen on {BiomeName}. I'm an elf, not a dwarf!
+					LoveNPC: "{NPCName} knows so many things I never knew, I'd love for him to teach with me sometime!"
+					LikeNPC: I feel {NPCName} is quite misunderstood. He's a good kid, he gave me an apple!
+					DislikeNPC: How do I kindly tell {NPCName} that I'm not interested? He's a bit... young for my tastes.
+					HateNPC: "{NPCName} has no dignity whatsoever! Imagine if the children saw her like that?!"
+					LikeNPC_Princess: "{NPCName} is adorable, and an outstanding student!"
+					Princess_LovesNPC: "{NPCName} teaches me so many wonderful things!"
+				}
+			}
+		}
+
+		Dialogue: {
+			Teacher: {
+				StandardDialogue1: Does the localisation work.
+				StandardDialogue2: I hope the localisation works.
+				StandardDialogue3: The localisation better work.
+			}
 		}
 
 		Items: {
 			MegaBrain: {
 				DisplayName: Mega-Brain
 				Tooltip: Summons the Zombie Goliath
-			}
-
-			GoldStinkbugItem: {
-				DisplayName: Gold Stinkbug Item
-				Tooltip: ""
-			}
-
-			StinkbugItem: {
-				DisplayName: Stinkbug Item
-				Tooltip: ""
 			}
 
 			Mythmud: {
@@ -70,6 +71,11 @@ Mods: {
 					Fires high-velocity peas that deal splash damage
 					Direct hits will always crit
 					'''
+			}
+
+			ZombieFlesh: {
+				DisplayName: Zombie Flesh
+				Tooltip: "'Looks terrible, smells terrible.'"
 			}
 		}
 

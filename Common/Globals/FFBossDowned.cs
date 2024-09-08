@@ -25,7 +25,7 @@ namespace AAMod.Common.Globals
             var downed = new List<string>();
 
             if (downedGurg)
-                downed.Add("downedGrips");
+                downed.Add("downedGurg");
 
             tag["downed"] = downed;
         }
@@ -34,7 +34,7 @@ namespace AAMod.Common.Globals
         {
             var downed = tag.GetList<string>("downed");
 
-            downedGurg = downed.Contains("downedGrips");
+            downedGurg = downed.Contains("downedGurg");
         }
 
         public override void NetSend(BinaryWriter writer)

@@ -9,7 +9,6 @@ namespace FFMod.Content.Items.BossSummons
 {
     public class MegaBrain : ModItem
     {
-        public override string Texture => FFMod.PlaceholderTexture;
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Mega-Brain");
@@ -21,7 +20,7 @@ namespace FFMod.Content.Items.BossSummons
 
         public override void SetDefaults()
         {
-            Item.width = 28;
+            Item.width = 32;
             Item.height = 32;
             Item.maxStack = 999;
             Item.rare = ItemRarityID.Blue;
@@ -54,5 +53,11 @@ namespace FFMod.Content.Items.BossSummons
             }
             return true;
         }
+
+        public override void AddRecipes()
+            => CreateRecipe()
+            .AddIngredient(ModContent.ItemType<Consumables.ZombieFlesh>(), 8)
+            .AddTile(TileID.DemonAltar)
+            .Register();
     }
 }
