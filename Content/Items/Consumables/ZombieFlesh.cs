@@ -7,22 +7,21 @@ namespace FFMod.Content.Items.Consumables
 {
     public class ZombieFlesh : ModItem
     {
-        public override string Texture => FFMod.PlaceholderTexture;
         public override void SetStaticDefaults()
         {
 
             ItemID.Sets.FoodParticleColors[Item.type] = new Color[3] {
-                new Color(237, 215, 80),
-                new Color(233, 173, 41),
-                new Color(222, 139, 38)
+                new Color(209, 214, 138),
+                new Color(41, 41, 37),
+                new Color(129, 38, 41)
             };
             Item.ResearchUnlockCount = 20;
         }
 
         public override void SetDefaults()
         {
-            Item.width = 22;
-            Item.height = 28;
+            Item.width = 24;
+            Item.height = 30;
             Item.useStyle = ItemUseStyleID.EatFood;
             Item.useAnimation = 15;
             Item.useTime = 15;

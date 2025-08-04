@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace FFMod.Common.Globals.NPCs
 {
-    class AAGlobalNPC : GlobalNPC
+    class FFNPC : GlobalNPC
     {
         public override bool InstancePerEntity => true;
 
@@ -17,9 +17,10 @@ namespace FFMod.Common.Globals.NPCs
         public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
         {
             if (npc.type == NPCID.Zombie)
-            {
                 npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Content.Items.Consumables.ZombieFlesh>(), 2));
-            }
+
+            if (npc.type == NPCID.Crab)
+                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Content.Items.Materials.CrabCarapace>(), 2));
         }
 
         public override void OnSpawn(NPC npc, IEntitySource source)

@@ -33,6 +33,9 @@ Mods: {
 					Princess_LovesNPC: "{NPCName} teaches me so many wonderful things!"
 				}
 			}
+
+			Dijiang.DisplayName: Dijiang
+			Jackolope.DisplayName: Jackolope
 		}
 
 		Dialogue: {
@@ -40,6 +43,8 @@ Mods: {
 				StandardDialogue1: Does the localisation work.
 				StandardDialogue2: I hope the localisation works.
 				StandardDialogue3: The localisation better work.
+				BloodMoon1: What's wrong, dear? You thought I'd snap at you? Ohoho, don't worry... I'm far past that age now.
+				BloodMoon2: Blah.
 			}
 		}
 
@@ -77,12 +82,39 @@ Mods: {
 				DisplayName: Zombie Flesh
 				Tooltip: "'Looks terrible, smells terrible.'"
 			}
+
+			CrabDo: {
+				DisplayName: Crab Do
+				Tooltip: ""
+			}
+
+			CrabKabuto: {
+				DisplayName: Crab Kabuto
+				Tooltip: ""
+			}
+
+			CrabKegutsu: {
+				DisplayName: Crab Kegutsu
+				Tooltip: ""
+			}
+
+			CrabCarapace: {
+				DisplayName: Crab Carapace
+				Tooltip: ""
+			}
+
+			CopperHoe: {
+				DisplayName: Copper Hoe
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
 			Baseball.DisplayName: Baseball
 			Pea.DisplayName: Pea
 		}
+
+		DamageClasses.SentinalClass.DisplayName: Sentinal Class
 	}
 }
 

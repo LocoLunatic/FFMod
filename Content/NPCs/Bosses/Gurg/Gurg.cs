@@ -16,9 +16,7 @@ namespace FFMod.Content.NPCs.Bosses.Gurg
         {
             Start,
             Idle,
-            Jump,
-            Throw,
-            Summon
+            Attacks,
         }
 
         public ActionState AIState
@@ -45,8 +43,8 @@ namespace FFMod.Content.NPCs.Bosses.Gurg
 
         public override void SetDefaults()
         {
-            NPC.lifeMax = 2360;
-            NPC.damage = 24;
+            NPC.lifeMax = 2660;
+            NPC.damage = 28;
             NPC.defense = 10;
 
             NPC.width = 74;
@@ -80,7 +78,7 @@ namespace FFMod.Content.NPCs.Bosses.Gurg
             {
                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
                 BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Times.NightTime,
-                new FlavorTextBestiaryInfoElement("Bigger, meaner, and smarter than the others, this brute leads a gang of smaller zombies to cause chaos wherever they go. He calls himself 'Gurg'.")
+                new FlavorTextBestiaryInfoElement("Bigger, meaner, and stronger than the others, this brute leads a gang of smaller zombies to cause chaos wherever they go. He calls himself 'Gurg'.")
             });
         }
         public override void OnKill()
@@ -96,14 +94,25 @@ namespace FFMod.Content.NPCs.Bosses.Gurg
                 NPC.TargetClosest();
         }
 
+        public override void ModifyHitByProjectile(Projectile projectile, ref NPC.HitModifiers modifiers)
+        {
+            if (projectile.type == ProjectileID.Grenade)
+                modifiers.FinalDamage /= 2;
+        }
+
         public override void HitEffect(NPC.HitInfo hit)
         {
             if (NPC.life <= 0)
             {
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < 12; i++)
                 {
                     Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Blood, 0f, 0f, 100, default, 1.5f);
                 }
+            }
+
+            for (int i = 0; i < 6; i++)
+            {
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Blood, 0f, 0f, 100, default, 1.5f);
             }
         }
     }

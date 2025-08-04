@@ -123,7 +123,8 @@ namespace FFMod.Content.NPCs.TownNPCs
 
         public override List<string> SetNPCNameList()
         {
-            return new List<string>() {
+            return new List<string>() 
+            {
                 "Aelua",
                 "Azariah"
             };
@@ -141,6 +142,12 @@ namespace FFMod.Content.NPCs.TownNPCs
             chat.Add(Language.GetTextValue("Mods.FFMod.Dialogue.Teacher.StandardDialogue1"));
             chat.Add(Language.GetTextValue("Mods.FFMod.Dialogue.Teacher.StandardDialogue2"));
             chat.Add(Language.GetTextValue("Mods.FFMod.Dialogue.Teacher.StandardDialogue3"));
+
+            if (Main.bloodMoon) 
+            {
+                chat.Add(Language.GetTextValue("Mods.FFMod.Dialogue.Teacher.BloodMoon1"));
+                chat.Add(Language.GetTextValue("Mods.FFMod.Dialogue.Teacher.BloodMoon2"));
+            }
 
             return chat;
         }
