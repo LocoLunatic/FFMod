@@ -36,15 +36,27 @@ Mods: {
 
 			Dijiang.DisplayName: Dijiang
 			Jackolope.DisplayName: Jackolope
+			Mothboy.DisplayName: Mothman Juvinile
+			Mothboy_Fly.DisplayName: Mothman Juvenile
+		}
+
+		FlavorTextBestiary: {
+			Teacher: The Teacher hails from a faraway land that housed a school for aspiring mages. As an elf, she is very in tune with magic.
+			Jackolope: A magical permeance has caused this bunny to grow antlers.
+			Mothboy: Homunculus beings that stalk thoughout the night. Often mistaken for an owl, the piercing red gaze suggests otherwise.
+			Gurg: Bigger, meaner, and stronger than the others, this brute leads a gang of smaller zombies to cause chaos wherever they go. He calls himself 'Gurg'.
 		}
 
 		Dialogue: {
 			Teacher: {
-				StandardDialogue1: Does the localisation work.
-				StandardDialogue2: I hope the localisation works.
-				StandardDialogue3: The localisation better work.
+				Standard1: Does the localisation work.
+				Standard2: I hope the localisation works.
+				Standard3: Did you remember to do your homework? ...Haha, you looked worried for a moment!
+				Night1: Fallen stars are a solidified form of light magic, but the bonds holding them together dissolve when exposed to sunlight.
 				BloodMoon1: What's wrong, dear? You thought I'd snap at you? Ohoho, don't worry... I'm far past that age now.
-				BloodMoon2: Blah.
+				BloodMoon2: How terrible... Light and dark were never meant to intertwine in such a way...
+				Rain1: Ahh, the rain was always an exciting time back in the academy. Students would try to freeze or evaporate droplets before they hit the ground.
+				Rain2: You may not expect it, but rain is actually the ideal weather to conjure fire magic. The falling droplets create friction in the air that can be channeled into heat!
 			}
 		}
 
@@ -107,11 +119,17 @@ Mods: {
 				DisplayName: Copper Hoe
 				Tooltip: ""
 			}
+
+			ElementalBlaster: {
+				DisplayName: Elemental Blaster
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
 			Baseball.DisplayName: Baseball
 			Pea.DisplayName: Pea
+			EBlaster_Proj.DisplayName: E Blaster_ Proj
 		}
 
 		DamageClasses.SentinalClass.DisplayName: Sentinal Class

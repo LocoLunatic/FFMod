@@ -27,8 +27,8 @@ namespace FFMod.Content.NPCs.Critters
         {
             NPC.lifeMax = 5;
 
-            NPC.width = 36;
-            NPC.height = 32;
+            NPC.width = 30;
+            NPC.height = 36;
 
             NPC.aiStyle = 7;
 
@@ -42,7 +42,7 @@ namespace FFMod.Content.NPCs.Critters
         {
             bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
             {
-                new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.AAMod.FlavorTextBestiary.Dijiang"))
+                new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.FFMod.FlavorTextBestiary.Jackolope"))
             });
         }
         
@@ -54,6 +54,13 @@ namespace FFMod.Content.NPCs.Critters
             {
                 Dust dust = Dust.NewDustDirect(NPC.position, NPC.width + 4, NPC.height + 4, DustID.Blood, Main.rand.NextFloat(-2f, 2f), Main.rand.NextFloat(-2f, 2f));
                 dust.velocity *= 0.8f;
+            }
+            if (NPC.life <= 0 && Main.netMode != NetmodeID.Server)
+            {
+                for (int i = 0; i < 2; i++)
+                {
+                    Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, 75 + i + 1, 1);
+                }
             }
         }
 

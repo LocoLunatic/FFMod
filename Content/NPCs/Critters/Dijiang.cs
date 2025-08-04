@@ -54,7 +54,7 @@ namespace FFMod.Content.NPCs.Critters
         {
             bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
             {
-                new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.AAMod.FlavorTextBestiary.Dijiang"))
+                new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.FFMod.FlavorTextBestiary.Dijiang"))
             });
         }
         private int frame;
@@ -159,6 +159,14 @@ namespace FFMod.Content.NPCs.Critters
             {
                 Dust dust = Dust.NewDustDirect(NPC.position, NPC.width + 4, NPC.height + 4, DustID.Blood, Main.rand.NextFloat(-2f, 2f), Main.rand.NextFloat(-2f, 2f));
                 dust.velocity *= 0.8f;
+            }
+
+            if (NPC.life <= 0 && Main.netMode != NetmodeID.Server)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, ModContent.Find<ModGore>("FFMod/DijiangGore" + (i + 1)).Type, 1);
+                }
             }
         }
 

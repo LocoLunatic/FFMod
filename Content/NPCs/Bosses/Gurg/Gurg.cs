@@ -5,6 +5,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace FFMod.Content.NPCs.Bosses.Gurg
@@ -78,7 +79,7 @@ namespace FFMod.Content.NPCs.Bosses.Gurg
             {
                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
                 BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Times.NightTime,
-                new FlavorTextBestiaryInfoElement("Bigger, meaner, and stronger than the others, this brute leads a gang of smaller zombies to cause chaos wherever they go. He calls himself 'Gurg'.")
+                new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.FFMod.FlavorTextBestiary.Gurg"))
             });
         }
         public override void OnKill()

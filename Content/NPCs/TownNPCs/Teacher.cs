@@ -126,7 +126,14 @@ namespace FFMod.Content.NPCs.TownNPCs
             return new List<string>() 
             {
                 "Aelua",
-                "Azariah"
+                "Azariah",
+                "Clanire",
+                "Daethie",
+                "Esta",
+                "Irhaal",
+                "Ryllae",
+                "Syndra"
+
             };
         }
         public override bool CanChat()
@@ -139,14 +146,25 @@ namespace FFMod.Content.NPCs.TownNPCs
             WeightedRandom<string> chat = new();
 
 
-            chat.Add(Language.GetTextValue("Mods.FFMod.Dialogue.Teacher.StandardDialogue1"));
-            chat.Add(Language.GetTextValue("Mods.FFMod.Dialogue.Teacher.StandardDialogue2"));
-            chat.Add(Language.GetTextValue("Mods.FFMod.Dialogue.Teacher.StandardDialogue3"));
+            chat.Add(Language.GetTextValue("Mods.FFMod.Dialogue.Teacher.Standard1"));
+            chat.Add(Language.GetTextValue("Mods.FFMod.Dialogue.Teacher.Standard2"));
+            chat.Add(Language.GetTextValue("Mods.FFMod.Dialogue.Teacher.Standard3"));
+
+            if (!Main.dayTime && !Main.bloodMoon)
+            {
+                chat.Add(Language.GetTextValue("Mods.FFMod.Dialogue.Teacher.Night1"));
+            }
 
             if (Main.bloodMoon) 
             {
                 chat.Add(Language.GetTextValue("Mods.FFMod.Dialogue.Teacher.BloodMoon1"));
                 chat.Add(Language.GetTextValue("Mods.FFMod.Dialogue.Teacher.BloodMoon2"));
+            }
+
+            if (Main.raining)
+            {
+                chat.Add(Language.GetTextValue("Mods.FFMod.Dialogue.Teacher.Rain1"));
+                chat.Add(Language.GetTextValue("Mods.FFMod.Dialogue.Teacher.Rain2"));
             }
 
             return chat;
